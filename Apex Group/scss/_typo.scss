@@ -1,0 +1,53 @@
+@use "_mixins.scss" as *;
+
+// @mixin typo($size, $line-height, $letter-spacing: null, $font-weight: null) {
+//     font-size: $size;
+//     line-height: $line-height;
+//     @if $letter-spacing != null {
+//         letter-spacing: $letter-spacing;
+//     }
+//     @if $font-weight != null {
+//         font-weight: $font-weight;
+//     }
+// }
+@mixin typo($type: "h1", $weight: 400) {
+    @if $type == "h1" {
+        // font-size: toRem(88);
+        @include adaptiveValue("font-size", 88, 50);
+        line-height: 1;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+    } @else if $type == "h2" {
+        @include adaptiveValue("font-size", 80, 40);
+        // font-size: toRem(80);
+        line-height: 1;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+    } @else if $type == "h3" {
+        // font-size: toRem(32);
+        @include adaptiveValue("font-size", 32, 20);
+        line-height: 1.25;
+        font-weight: 400;
+        text-transform: uppercase;
+    } @else if $type == "h4" {
+        // font-size: toRem(24);
+        @include adaptiveValue("font-size", 24, 18);
+        line-height: 1.5;
+        font-weight: 400;
+        text-transform: uppercase;
+    } @else if $type == "h5" {
+        // font-size: toRem(20);
+        @include adaptiveValue("font-size", 20, 16);
+        line-height: 1.05;
+        font-weight: 400;
+        text-transform: uppercase;
+    } @else if $type == "h6" {
+        // font-size: toRem(18);
+        @include adaptiveValue("font-size", 18, 16);
+        line-height: 1.05;
+        font-weight: 400;
+    } 
+    
+}

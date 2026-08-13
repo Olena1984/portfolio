@@ -1,0 +1,318 @@
+@use "_mixins.scss" as *;
+@use "_typo.scss" as *;
+@use "_colors.scss" as *;
+@use "_components.scss" as *;
+
+.project {
+    // padding-top: toRem(16);
+    display: flex;
+    color: $black-120;
+    // .project__container
+    &__container {
+        min-width: 0;
+        width: 100%;
+    }
+    // .project__header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        // gap: toRem(15);
+        width: 100%;
+        min-width: 0;
+        padding-top: toRem(16);
+        @include adaptiveValue("gap", 96, 15, 0, 1320, 992);
+        @media (width < toEm(950)) {
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            padding-top: toRem(48);
+        }
+    }
+}
+.project--sections {
+}
+.header-project {
+    // .header-project__heading
+    &__heading {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(32);
+        @media (width >= toEm(950)) {
+            max-width: toRem(676);
+            min-width: 0;
+        }
+
+        width: 100%;
+        min-width: 0;
+
+        opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.7s,
+            scale 0.7s;
+
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.6s;
+        }
+    }
+    // .header-project__label
+    &__label {
+    }
+    // .header-project__title
+    &__title {
+    }
+    // .header-project__filter
+    &__filter {
+        display: flex;
+        align-items: flex-end;
+        // flex-direction: column;
+        @media (width >= toEm(950)) {
+            // max-width: toRem(548);
+            flex: 0 1 toRem(548);
+            min-width: 0;
+            padding: toRem(0) toRem(10);
+        }
+
+        width: 100%;
+        min-width: 0;
+
+        opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.7s,
+            scale 0.7s;
+
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.6s;
+        }
+    }
+}
+
+.filter {
+    // .filter__years
+    &__years {
+        @media (width >= toEm(950)) {
+            max-width: toRem(548);
+            min-width: 0;
+        }
+        width: 100%;
+        min-width: 0;
+    }
+}
+.years-filter {
+    // .years-filter__title
+    &__title {
+        font-size: toRem(16);
+        color: $black-90;
+        line-height: 150%; /* 24/16 */
+        @include adaptiveValue(" margin-bottom", 24, 12);
+    }
+    // .years-filter__list
+    &__list {
+        display: flex;
+        width: 100%;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: toRem(32);
+        padding: toRem(0) toRem(10);
+
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        overflow-y: hidden;
+    }
+    // .years-filter__item
+    &__item {
+        @include typo("h6");
+        line-height: 144.444444%; /* 26/18 */
+        color: $white-60;
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        transition:
+            color 0.5s,
+            transform 0.5s,
+            font-weight 0.5s;
+
+        cursor: pointer;
+
+        &.active {
+            transform: scale(1.3);
+            color: $black-120;
+        }
+        @media (width >= toEm(950)) {
+            &:last-child {
+                margin-left: auto;
+            }
+        }
+        @media (width < toEm(950)) {
+            &:first-child {
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+.portfolio {
+    // .portfolio__container
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        @include adaptiveValue("gap", 130, 15, 0, 1320, 950);
+    }
+    // .portfolio__gallery
+    &__gallery {
+
+        opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.7s,
+            scale 0.7s;
+
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.5s;
+        }
+    }
+
+    // .portfolio__list
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(16);
+    }
+    // .portfolio__item
+    &__item {
+        width: 100%;
+      opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.5s,
+            scale 0.5s;
+
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.5s;
+        }
+
+    }
+    // .portfolio__link
+    &__link {
+        display: flex;
+        // justify-content: space-between;
+        @media (width >= toEm(950)) {
+            @include adaptiveValue("gap", 130, 15);
+        }
+
+        @media (width < toEm(950)) {
+            display: flex;
+            flex-direction: column;
+            gap: toRem(8);
+        }
+    }
+    // .portfolio__picture
+    &__picture {
+        width: 100%;
+
+        @media (width >= toEm(950)) {
+            display: none;
+            max-width: toRem(539);
+            aspect-ratio: 539 / 324;
+        }
+         
+    }
+    // .portfolio__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .portfolio__info
+    &__info {
+        @media (width >= toEm(950)) {
+            max-width: toRem(652);
+            border-bottom: toRem(1) solid $white-60;
+        }
+
+        width: 100%;
+        display: flex;
+        padding: toRem(12) toRem(0);
+        align-items: center;
+        justify-content: space-between;
+
+        @include adaptiveValue("gap", 75, 15);
+        color: $white-60;
+
+        transition:
+            color 0.5s,
+            font-weight 0.5s;
+
+        &.active {
+            color: $black-120;
+        }
+
+        @media (width < toEm(950)) {
+            width: 100%;
+        }
+    }
+
+    .info-portfolio {
+        
+        // .portfolio__title
+        &__title {
+            @include typo("h3");
+            line-height: 125%; /* 40/32 */
+
+            @media (width < toEm(950)) {
+                color: $black-120;
+            }
+        }
+        // .portfolio__description
+        &__description {
+            @media (width >= toEm(950)) {
+                display: block;
+                font-size: toRem(16);
+                line-height: 150%; /* 24/16 */
+                text-transform: uppercase;
+            }
+
+            @media (width < toEm(950)) {
+                display: none;
+            }
+        }
+    }
+    .gallery-portfolio {
+        min-width: 0;
+        align-self: center;
+        @media (width < toEm(950)) {
+            display: none;
+        }
+
+        // .gallery-portfolio__picture
+        &__picture {
+            max-width: toRem(539);
+            width: 100%;
+            aspect-ratio: 539 / 324;
+
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+        // .gallery-portfolio__image
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

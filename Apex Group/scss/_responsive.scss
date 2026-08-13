@@ -1,0 +1,103 @@
+@use "_mixins.scss" as *;
+@use "_typo.scss" as *;
+@use "_colors.scss" as *;
+@use "_components.scss" as *;
+
+.responsive {
+    background-color: $black-120;
+    color: $white-00;
+    display: flex;
+    flex-direction: column;
+    // .responsive__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    // .responsive__hero
+    &__hero {
+        opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.5s,
+            scale 0.5s;
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.5s;
+        }
+    }
+    // .responsive__picture
+    &__picture {
+        // aspect-ratio: 1440 / 570;
+        // @media (width < toEm(768)){
+        //     aspect-ratio: 4 / 3;
+        // }
+        opacity: 0;
+        scale: 0;
+        transition:
+            opacity 0.5s,
+            scale 0.5s;
+        &.animate {
+            opacity: 1;
+            scale: 1;
+            transition-delay: 0.5s;
+        }
+    }
+    // .responsive__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.hero-responsive {
+    // .hero-responsive__title
+    &__title {
+        @include typo("h1");
+        max-width: toRem(655);
+        width: 100%;
+        margin-bottom: toRem(30);
+        text-wrap: balance;
+        @media (width < toEm(478)) {
+            font-size: toRem(40);
+        }
+    }
+    // .hero-responsive__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @media (width >= toEm(1120)) {
+            max-width: toRem(650);
+            justify-self: flex-end;
+        }
+    }
+}
+
+.content-responsive {
+    // .content-responsive__title
+    &__title {
+        @include typo("h3");
+        margin-bottom: toRem(15);
+    }
+    // .content-responsive__text
+    &__text {
+        @include typo("h6");
+        line-height: 177.777778%; /* 32/18 */
+        margin-bottom: toRem(24);
+    }
+    // .content-responsive__button
+    &__button {
+        max-width: toRem(210);
+        width: 100%;
+    }
+    // .content-responsive__button--icon-arrow
+    &__button--icon-arrow {
+    }
+}
+.button {
+}
+.button--white {
+}

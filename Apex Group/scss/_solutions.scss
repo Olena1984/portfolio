@@ -1,0 +1,284 @@
+@use "_mixins.scss" as *;
+@use "_typo.scss" as *;
+@use "_colors.scss" as *;
+@use "_components.scss" as *;
+
+.hero-blog {
+    // .hero-blog__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        @include adaptiveValue("gap", 40, 15, 0, 1322, 768);
+        color: $black-120;
+    }
+    // .hero-blog__picture
+    &__picture {
+        @media (width >= toEm(768)) {
+            margin-top: toRem(16);
+        }
+        @media (width < toEm(768)) {
+            margin-top: toRem(56);
+        }
+    }
+    // .hero-blog__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .hero-blog__heading
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(15);
+        @media (width < toEm(768)) {
+            flex-wrap: wrap;
+            text-wrap: balance;
+        }
+    }
+}
+.heading-blog {
+    // .heading-blog__title
+    &__title {
+        @media (width >= toEm(768)) {
+            max-width: toRem(681);
+        }
+        width: 100%;
+        font-weight: 400;
+        @include adaptiveValue("font-size", 48, 24);
+        // font-size: toRem(48);
+        line-height: 116.666667%; /* 56/48 */
+        text-transform: uppercase;
+    }
+    // .heading-blog__text
+    &__text {
+        width: 100%;
+        @media (width >= toEm(768)) {
+            max-width: toRem(522);
+        }
+
+        @include typo("h6");
+        line-height: 177.777778%; /* 32/18 */
+        color: $black-90;
+    }
+}
+// ===========2-section===================
+.concept-blog {
+    display: flex;
+    flex-direction: column;
+    background-color: $black-120;
+    color: $white-00;
+    // .concept-blog__container
+    &__container {
+        display: flex;
+        @include adaptiveValue("gap", 82, 32, 0, 1320, 992);
+        justify-content: space-between;
+
+        @media (width < toEm(992)) {
+            flex-direction: column;
+        }
+    }
+    // .concept-blog__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include adaptiveValue("gap", 550, 32, 0, 1320, 992);
+    }
+    // .concept-blog__gallery
+    &__gallery {
+        display: flex;
+        // justify-content: space-between;
+        gap: toRem(24);
+
+        @media (width < toEm(768)) {
+            flex-direction: column;
+        }
+    }
+}
+.concept-blog--sections {
+}
+.blog-concept {
+    // .blog-concept__title
+    &__title {
+        @include adaptiveValue("padding-top", 80, 48);
+        @include adaptiveValue("font-size", 40, 24);
+        line-height: 120%; /* 48/40 */
+        width: 100%;
+        @media (width >= toEm(992)) {
+            max-width: toRem(480);
+        }
+    }
+    // .blog-concept__text
+    &__text {
+        @media (width >= toEm(992)) {
+            max-width: toRem(460);
+            @include adaptiveValue(" margin-bottom", 125, 32);
+        }
+
+        width: 100%;
+        @include typo("h6");
+        line-height: 144.444444%; /* 26/18 */
+        color: $white-20;
+    }
+}
+.blog-gallery {
+    // .blog-gallery__column
+    &__column {
+        display: flex;
+        flex-direction: column;
+        row-gap: toRem(24);
+
+        @media (width < toEm(992)) {
+            width: 100%;
+        }
+    }
+    // .blog-gallery__picture
+    &__picture {
+        &--living-room {
+            @media (width >= toEm(992)) {
+                margin-top: toRem(92);
+                aspect-ratio: 371 / 520;
+                max-width: toRem(371);
+            }
+            width: 100%;
+        }
+        &--modern-kitchen {
+            @media (width >= toEm(992)) {
+                max-width: toRem(363);
+                aspect-ratio: 363 / 450;
+            }
+            width: 100%;
+        }
+        &--dining {
+            @media (width >= toEm(992)) {
+                aspect-ratio: 371 / 412;
+                max-width: toRem(371);
+            }
+            width: 100%;
+        }
+        &--kitchen-island {
+            width: 100%;
+            @media (width >= toEm(992)) {
+                aspect-ratio: 363 / 530;
+                max-width: toRem(363);
+            }
+        }
+    }
+    // .blog-gallery__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+// =======3 section===========
+.furniture {
+    background-color: $white-00;
+    // .furniture__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(24);
+    }
+    // .furniture__content
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(24);
+        @media (width < toEm(992)) {
+            flex-direction: column-reverse;
+        }
+
+        // @include adaptiveValue("gap", 211, 24);
+    }
+    // .furniture__gallery
+    &__gallery {
+        display: flex;
+        gap: toRem(24);
+
+        @media (width >= toEm(768)) {
+            @include adaptiveValue("margin-left", 113, 0);
+        }
+        @media (width < toEm(580)) {
+            flex-direction: column;
+        }
+    }
+    // .furniture__picture
+    &__picture {
+        // .furniture__picture--bag-chair
+        &--bag-chair {
+            @media (width >= toEm(580)){
+                aspect-ratio: 311 / 300;
+                max-width: toRem(311);
+                max-height: toRem(300);
+            }
+            
+
+            @media (width < toEm(580)){
+                max-width: toRem(228);
+                aspect-ratio: 1;
+            }
+            
+        }
+        &--coffee-table {
+            // @media (width >= toEm(580)){
+            max-width: toRem(424);
+            aspect-ratio: 424 / 468;
+            // }
+            // @media (width < toEm(375)){
+            //     max-width: toRem(343);
+            //     aspect-ratio: 1;
+            // }
+            
+        }
+    }
+    // .furniture__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .furniture__picture--coffee-table
+}
+
+.content-furniture {
+    // .content-furniture__picture
+    &__picture {
+    }
+    // .content-furniture__picture--office
+    &__picture--office {
+        @media (width >= toEm(992)) {
+            aspect-ratio: 685 / 373;
+            max-width: toRem(685);
+        }
+    }
+    // .content-furniture__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // content-furniture__description
+    &__description {
+        display: flex;
+        flex-direction: column;
+        @include adaptiveValue("gap", 32, 24);
+        // gap: toRem(32);
+        @media (width >= toEm(992)) {
+            max-width: toRem(388);
+        }
+        width: 100%;
+    }
+    // .content-furniture__title
+    &__title {
+        @include adaptiveValue("font-size", 40, 24);
+        line-height: 120%;
+        width: 100%; 
+    }
+    // .content-furniture__text
+    &__text {
+        @include typo("h6");
+        line-height: 144.444444%; /* 26/18 */
+    }
+}
