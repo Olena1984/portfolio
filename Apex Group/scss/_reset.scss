@@ -1,0 +1,60 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+::after, 
+::before {
+    display:inline-block;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+li {
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+html, body {
+    height: 100%;
+    line-height: 1;
+    // overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+select,
+input,
+textarea{
+    width: 100%;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    background: transparent;
+}
+label{
+    display: inline-block;
+}
+button{
+    background: transparent;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    color:inherit;
+}
+button,
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: pointer;
+}
+cite{
+    font-style: normal;
+}

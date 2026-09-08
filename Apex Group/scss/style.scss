@@ -1,0 +1,53 @@
+@use "_reset.scss";
+@use "_fonts.scss";
+@use "_mixins.scss" as *;
+@use "_colors.scss" as *;
+@use "_typo.scss" as *;
+@use "_header.scss";
+@use "_components.scss" as *;
+@use "_icons-font.scss";
+@use "_main.scss";
+@use "_footer.scss" as *;
+@use "_about.scss" as *;
+@use "_insights.scss" as *;
+@use "_service.scss" as *;
+@use "_project.scss" as *;
+@use "_detailProject.scss" as *;
+@use "_contactUs.scss" as *;
+@use "_responsive.scss" as *;
+
+html{
+   overflow-x: hidden; 
+}
+body {
+    font-family: "Telegraf", sans-serif;
+    font-weight: 400;
+    background-color: $white-00;
+    overflow-x: hidden;
+}
+.wrapper > main {
+    flex-grow: 1;
+}
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+}
+[class*="__container"] {
+    max-width: 1350px;
+    
+    margin: 0 auto;
+    padding-inline: toRem(15);
+}
+// ===================
+[class*="--sections"] {
+    > *:not([class*="--no-padding"]) {
+        @include adaptiveValue("padding-top", 112, 64);
+    }
+    > *:not([class*="--no-margin"]) {
+        @include adaptiveValue("margin-bottom", 112, 64);
+    }
+}
