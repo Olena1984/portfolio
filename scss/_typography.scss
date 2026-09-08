@@ -1,0 +1,40 @@
+@use "_mixins.scss" as *;
+
+// @mixin typo($size, $line-height, $letter-spacing: null, $font-weight: null) {
+//     font-size: $size;
+//     line-height: $line-height;
+//     @if $letter-spacing != null {
+//         letter-spacing: $letter-spacing;
+//     }
+//     @if $font-weight != null {
+//         font-weight: $font-weight;
+//     }
+// }
+@mixin typo($type: "h1", $weight: 400) {
+    @if $type == "h1" {
+        @include adaptiveValue("font-size", 47, 34);
+        line-height: 134.042553%; /* 63/47 */
+        font-weight: $weight;
+    } @else if $type == "h2" {
+        @include adaptiveValue("font-size", 36, 28);
+        line-height: 133.333333%; /* 48/36 */
+        font-weight: $weight;
+       
+    } @else if $type == "h3" {
+        @include adaptiveValue("font-size", 28, 22);
+        line-height: 132.142857%; /* 37/28 */
+        font-weight: $weight;
+    } @else if $type == "h4" {
+        @include adaptiveValue("font-size", 24, 19);
+        font-weight: $weight;
+        line-height: 133.333333%; /* 32/24 */
+    } @else if $type == "h5" {
+        @include adaptiveValue("font-size", 20, 17);
+        line-height: 135%; /* 27/20 */
+        font-weight: $weight;
+    } @else if $type == "h6" {
+        @include adaptiveValue("font-size", 18, 15);
+        line-height: 133.333333%; /* 24/18 */
+        font-weight: $weight;
+    }
+}

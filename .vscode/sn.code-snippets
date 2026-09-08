@@ -1,0 +1,104 @@
+{
+	// Place your Furniture workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Typo": {
+		"scope": "scss",
+		"prefix": "typo",
+		"body": [
+			"@include typo(\"$1\");",
+			
+		],
+		"description":""
+	},
+	"Hover for touch only": {
+		"prefix": "hhv",
+		"body": [
+			"html:not([data-fls-touch]) &{\n\t&:hover{\n\t\t$0\n\t}\n}"
+		],
+		"description": "hhv"
+	},
+	"Nav menu":{
+		"scope": "html",
+		"prefix": "nav",
+		"body": [
+			"<div class=\"header__menu menu\">",
+			"\t<button type=\"button\" class=\"menu__icon icon-menu\"><span></span></button>",
+			"\t<nav class=\"menu__body\">",
+			"\t\t<ul class=\"menu__list\">",
+			"\t\t\t<li class=\"menu__item\"><a href=\"#\" class=\"menu__link\"><span>$1</span></a></li>",
+			"\t\t\t<li class=\"menu__item\"><a href=\"#\" class=\"menu__link\"><span>$2</span></a></li>",
+			"\t\t\t<li class=\"menu__item\"><a href=\"#\" class=\"menu__link\"><span>$3</span></a></li>",
+			"\t\t\t<li class=\"menu__item\"><a href=\"#\" class=\"menu__link\"><span>$4</span></a></li>",
+			"\t\t</ul>",
+			"\t</nav>",
+			"</div>",
+			"$0"
+		],
+		"description": "навігаційне меню"	
+	},
+	"Pse":{
+		"scope": "scc,scss",
+		"prefix": "pse",
+		"body": [
+			"&::before,",
+			"&::after {",
+			"\tcontent:\"\";",
+			"\twidth: $1;",
+			"\theight: $2;",
+			"\tposition: $3;",
+			"\ttop: $4;",
+			"\tleft: $5;",
+			"}",
+			"$0"
+		],
+		"description": "псевдоелемент"	
+	},
+	"mdq":{
+		"scope": "scc,scss",
+		"prefix": "mdq",
+		"body": [
+			"@media (width < toEm($1)){",
+			
+			"}",
+			"$0"
+		],
+		"description": "медіазапити"	
+	},
+	"fig":{
+		"scope": "html",
+		"prefix": "fig",
+		"body": [
+			"<figure>",
+			"\t<img srcset=\"$1path/to/image.webp 1x path/to/image-2x.webp 2x, path/to/image-3x.webp 3x\" src=\"path/to/image.webp\" alt=\"$2\" />",
+			"</figure>",
+			"$0"
+		],
+		"description": "figure img"		
+	},
+	"pic":{
+		"scope": "html",
+		"prefix": "pic",
+		"body": [
+			"<picture>",
+			"\t<source srcset=\"$1image-1x.avif 1x, path/to/image-2x.avif 2x, path/to/image-3x.avif 3x\" type=\"image/avif\">",
+			"\t<img src=\"$2path/to/image.jpg\" alt=\"image\">",
+			"</picture>",
+			"$0"
+		],
+		"description": "figure img"		
+	},
+	
+}
+				
+						
+						
+							
+								
+							
+						
+					
