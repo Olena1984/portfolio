@@ -1,0 +1,365 @@
+@use "_mixins.scss" as *;
+@use "_colors.scss" as *;
+@use "_typography.scss" as *;
+
+//
+
+html {
+    overflow-x: hidden;
+}
+body {
+    font-family: "Playfair Display", serif;
+    // font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: toRem(16);
+    background-color: $white;
+    color: $black-00;
+    // overflow-x: hidden;
+}
+.wrapper > main {
+    flex-grow: 1;
+}
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+}
+[class*="__container"] {
+    max-width: 1064px;
+
+    margin: 0 auto;
+    padding-inline: toRem(15);
+}
+// ===================
+[class*="--sections"] {
+    > *:not([class*="--no-padding"]) {
+        @include adaptiveValue("padding-top", 100, 50);
+    }
+    > *:not([class*="--no-margin"]) {
+        @include adaptiveValue("margin-bottom", 100, 50);
+    }
+}
+
+//
+
+.button {
+    padding: toRem(9) toRem(50);
+    border: toRem(1) solid $black-00;
+    scale: 1;
+    transition: scale 0.4s linear;
+    text-align: center;
+    &:hover {
+        background-color: $gray-d6;
+        scale: 1.1;
+    }
+
+    &--big {
+        padding: toRem(9) toRem(16);
+        border: toRem(1) solid $white;
+        font-size: toRem(14);
+        &:hover {
+            scale: 1.2;
+            background-color: $gray-66;
+        }
+    }
+    &--small {
+        @media (width < toEm(768)) {
+            width: 100%;
+        }
+    }
+}
+.products-cosmetics {
+    // @include adaptiveValue("padding-inline", 100, 0, 0, 1200, 768);
+    // display: grid;
+    // // grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(auto-fit, minmax((toRem(205), 1fr)));
+    // @include adaptiveValue("row-gap", 75, 20, 0, 1200, 768);
+    // @include adaptiveValue("column-gap", 90, 20, 0, 1200, 768);
+    // @include adaptiveValue("margin-bottom", 100, 40, 0, 1200, 768);
+    // width: 100%;
+
+    // .products-cosmetics__item
+    &__item
+    // .products-cosmetics__link
+    &__link {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(16);
+        transition: scale 0.4s linear;
+        &:hover {
+            scale: 1.1;
+            box-shadow: toRem(5) toRem(5) toRem(15) toRem(5) $gray-ab;
+        }
+    }
+    // .products-cosmetics__picture
+    &__picture {
+        aspect-ratio: 205 / 208;
+    }
+    // .products-cosmetics__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .products-cosmetics__title
+    &__title {
+        padding: toRem(5);
+        @include typo("h5");
+    }
+}
+
+.blog-card {
+    //.-card__item
+    &__item {
+    }
+    // .blog-card__link
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+
+        transition: scale 0.4s linear;
+        &:hover {
+            scale: 1.1;
+            box-shadow: toRem(5) toRem(5) toRem(15) toRem(5) $gray-ab;
+        }
+    }
+    // .blog-card__picture
+    &__picture {
+        aspect-ratio: 251 / 315;
+        position: relative;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($black-00, 0.59);
+            z-index: 1;
+        }
+    }
+    // .blog-card__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .blog-card__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 41%;
+        padding-bottom: 8%;
+       
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        color: $white;
+
+    }
+    // .blog-card__title
+    &__title {
+        font-weight: 400;
+        font-size: toRem(28);
+        line-height: 132.142857%; /* 37/28 */
+
+    }
+    // .blog-card__button
+    &__button {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 135.294118%; /* 23/17 */
+        margin-top: auto;
+    }
+}
+.title {
+    &--blogs {
+        font-weight: 400;
+        font-size: toRem(20);
+        line-height: 135%; /* 27/20 */
+        margin-bottom: toRem(48);
+    }
+}
+
+// =====================================================
+.cosmetic {
+    // .cosmetic__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-block: toRem(60);
+        position: relative;
+        &::before{
+        // &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: toRem(1);
+            position: absolute;
+            left: 0;
+            background-color: $black-00;
+        }
+        &::before {
+            top: 0;
+        }
+    }
+    // додавання нижньої лінії для останньої секції 
+    &:last-of-type{
+        .cosmetic__container{
+            @include adaptiveValue("margin-bottom", 140, 0, 0, 1200, 768);
+            &::after{
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: toRem(1);
+                background-color: $black-00;
+            }
+        }
+    }
+    // .cosmetic__title
+    &__title {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 135%; /* 27/20 */
+        margin-bottom: toRem(45);
+    }
+    // .cosmetic__navigation
+    &__navigation {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: toRem(30);
+        row-gap: toRem(10);
+        // margin-bottom: toRem(75);
+        @include adaptiveValue("margin-bottom", 75, 40, 0, 1200, 768);
+        @media (width >= toEm(992)) {
+            padding-inline: toRem(80);
+        }
+        @media (width >= toEm(475)) {
+            justify-content: space-between;
+        }
+    }
+    // .cosmetic__item
+    &__item {
+        // transition: scale 0.4s linear;
+        // &:hover {
+        //
+        // }
+    }
+    // .cosmetic__link
+    &__link {
+        // display: inline-block;
+        line-height: 140%;
+        position: relative;
+        transition: scale 0.3s;
+        &::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: toRem(1);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            background-color: $black-00;
+            transition:
+                width 0.3s,
+                left 0.3s;
+        }
+        &--active {
+            color: $gray-66;
+            &::after {
+                width: 100%;
+                left: 0;
+                background-color: $gray-66;
+            }
+        }
+        // &:hover{
+        //     scale: 1.1;
+        //     &::after {
+        //         width: 100%;
+        //         left: 0;
+        //     }
+        // }
+    }
+    // .cosmetic__wrap
+    &__wrap {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(toRem(221), 1fr));
+        // column-gap: toRem(130);
+        @include adaptiveValue("column-gap", 130, 30, 0, 1200, 678);
+        row-gap: toRem(30);
+        @include adaptiveValue("margin-bottom", 60, 40, 0, 1200, 768);
+        // margin-bottom: toRem(60);
+        @media (width >= toEm(992)) {
+            padding-inline: toRem(45);
+        }
+    }
+    // .cosmetic__product-card
+    &__product-card {
+    }
+    // .cosmetic__button
+    &__button {
+    }
+
+    opacity: 0;
+    transform: translateY(toRem(-60));
+    transition:
+        opacity 0.4s,
+        transform 0.4s;
+    &.animate {
+        opacity: 1;
+        transform: translateY(toRem(0));
+        transition-delay: 0.5s;
+    }
+}
+.product-card {
+    // .product-card__link
+    &__link {
+        // aspect-ratio: 213 / 302;
+        display: flex;
+        flex-direction: column;
+        gap: toRem(14);
+
+        transition: scale 0.4s linear;
+        &:hover {
+            scale: 1.1;
+            box-shadow: toRem(5) toRem(5) toRem(15) toRem(5) $gray-ab;
+        }
+    }
+    // .product-card__picture
+    &__picture {
+        aspect-ratio: 200 / 208;
+    }
+    // .product-card__image
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    // .product-card__title
+    &__title {
+        padding: toRem(8);
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 135%; /* 27/20 */
+    }
+}

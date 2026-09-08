@@ -1,0 +1,262 @@
+@use "_mixins.scss" as *;
+@use "_colors.scss" as *;
+@use "_typography.scss" as *;
+@use "_components.scss";
+
+.footer {
+    background-color: $black-2f;
+    color: $white;
+    // .footer__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        padding-top: toRem(45);
+    }
+    // .footer__header
+    &__header {
+        // margin-bottom: toRem(80);
+    }
+    // .footer__footer
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        gap: toRem(20);
+        flex-wrap: wrap;
+        padding: toRem(20) toRem(34) toRem(28);
+        @media (width < toEm(768)){
+            padding-inline: 0;
+            padding-bottom: toRem(20);
+        }
+        
+    }
+    // .footer__link
+    &__link {
+        @include typo("h4");
+    }
+    // .footer__copyright
+    &__copyright {
+        font-size: toRem(14);
+        line-height: 135.714286%; /* 19/14 */
+    }
+
+     opacity: 0;
+    transform: translateY(toRem(-20));
+    transition:
+        opacity 0.4s,
+        transform 0.4s;
+    &.animate {
+        opacity: 1;
+        transform: translateY(toRem(0));
+        transition-delay: 0.5s;
+    }
+}
+.header-footer {
+    // .header-footer__content
+    &__content {
+    }
+}
+
+.content-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue("gap", 50, 20, 0, 1200, 992);
+    padding-top: toRem(35);
+    padding-bottom: toRem(62);
+    @include adaptiveValue("padding-inline", 80, 0, 0, 1200, 768);
+    position: relative;
+
+    @media (width < toEm(768)) {
+        flex-wrap: wrap;
+        row-gap: toRem(30);
+        padding-bottom: toRem(35);
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        width: 100%;
+        height: toRem(1);
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: $white-A09;
+    }
+    &::before {
+        top: 0;
+    }
+    &::after {
+        bottom: 0;
+    }
+    // .content-footer__company
+    &__company {
+        @media (width >= toEm(768)){
+            max-width: toRem(100);
+        }
+        @media (width < toEm(768)){
+            border-bottom: toRem(1) solid $white-cd;
+            padding-bottom: toRem(15);
+        }
+        
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: toRem(25);
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+    }
+    // .content-footer__title
+    &__title {
+        @include typo("h6");
+        color: $white-cd;
+    }
+    // .content-footer__list
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(20);
+        color: $white-cd;
+        text-align: center;
+    }
+    // .content-footer__item
+    &__item {
+        transition: scale 0.3s linear;
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: toRem(5);
+            color: $white;
+            scale: 1.1;
+        }
+    }
+    // .content-footer__link
+    &__link {
+    }
+
+    // .content-footer__location
+    &__location {
+        // max-width: toRem(261);
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $white-cd;
+        gap: toRem(24);
+        text-align: center;
+        position: relative;
+
+        @media (width >= toEm(768)) {
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                width: toRem(1);
+                height: toRem(225);
+                position: absolute;
+                top: toRem(-5);
+                background-color: $white-cd;
+                z-index: 3;
+            }
+            &::before {
+                left:0;
+            }
+            &::after {
+                right: 0;
+            }
+        }
+        @media (width < toEm(768)){
+            padding-bottom: toRem(15);
+            border-bottom: toRem(1) solid $white-cd;
+        }
+        
+    }
+    // .content-footer__contacts
+    &__contacts {
+        @media (width >= toEm(768)){
+            max-width: toRem(180);
+        }
+        
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: toRem(24);
+        color: $white-cd;
+        
+    }
+    // .content-footer__title
+    &__title {
+    }
+    // .content-footer__social
+    &__social {
+    }
+
+    .location-content {
+        // .location-content__title
+        &__title {
+            @include typo("h6");
+        }
+        // .location-content__list
+        &__list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-style: normal;
+            gap: toRem(20);
+            @media (width >= toEm(768)){
+                margin-bottom: toRem(33);
+            }
+            
+        }
+        // .location-content__address
+        &__address {
+            transition: scale 0.3s linear;
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: toRem(5);
+                color: $white;
+                scale: 1.1;
+            }
+        }
+        // .location-content__telephone
+        &__telephone {
+            transition: scale 0.3s linear;
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: toRem(5);
+                color: $white;
+                scale: 1.1;
+            }
+        }
+        // .location-content__slogan
+        &__slogan {
+            @include typo("h6");
+        }
+    }
+    .social-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: toRem(20);
+
+        // .social-content__item
+        &__item {
+            transition: scale 0.3s linear;
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: toRem(5);
+                color: $white;
+                scale: 1.1;
+            }
+        }
+        // .social-content__link
+        &__link {
+        }
+    }
+}
