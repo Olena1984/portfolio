@@ -1,0 +1,52 @@
+@use "sass:math";
+@use "_reset.scss";
+@use "_mixins.scss" as *;
+@use "_colors.scss" as *;
+@use "_components.scss" as *;
+@use "_header.scss";
+@use "_main.scss" ;
+@use "_footer.scss" ;
+@use "_blogs.scss" ;
+@use "_cosmetics.scss" ;
+
+html{
+   overflow-x: hidden; 
+}
+body {
+    font-family: "Playfair Display", serif;
+    // font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: toRem(16);
+    background-color: $white;
+    color: $black-00;
+    overflow-x: clip;
+}
+.wrapper > main {
+    flex-grow: 1;
+}
+.wrapper {
+    position: relative;
+    min-height: 100%;
+    overflow: clip;
+
+    display: flex;
+    flex-direction: column;
+}
+[class*="__container"] {
+    max-width: 1064px;
+    
+    margin: 0 auto;
+    padding-inline: toRem(15);
+}
+// ===================
+[class*="--sections"] {
+    > *:not([class*="--no-padding"]) {
+        @include adaptiveValue("padding-top", 100, 50);
+    }
+    > *:not([class*="--no-margin"]) {
+        @include adaptiveValue("margin-bottom", 100, 50);
+    }
+}
+
+
+
